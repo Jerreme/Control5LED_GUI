@@ -18,3 +18,9 @@ C:\Users\jiide\Documents\Visual Studio 2019\Projects\Control5LED_GUI\obj\Debug\C
 C:\Users\jiide\Documents\Visual Studio 2019\Projects\Control5LED_GUI\obj\Debug\Control5LED_GUI.pdb
 C:\Users\jiide\Documents\Visual Studio 2019\Projects\Control5LED_GUI\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.dll
 C:\Users\jiide\Documents\Visual Studio 2019\Projects\Control5LED_GUI\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.xml
+C:\Users\jiide\Documents\Visual Studio 2019\Projects\Control5LED_GUI\bin\Debug\Bunifu.UI.WinForms.1.5.3.dll
+C:\Users\jiide\Documents\Visual Studio 2019\Projects\Control5LED_GUI\bin\Debug\Bunifu.UI.WinForms.BunifuButton.dll
+C:\Users\jiide\Documents\Visual Studio 2019\Projects\Control5LED_GUI\bin\Debug\Bunifu.UI.WinForms.1.5.3.xml
+C:\Users\jiide\Documents\Visual Studio 2019\Projects\Control5LED_GUI\bin\Debug\Bunifu.UI.WinForms.BunifuButton.xml
+C:\Users\jiide\Documents\Visual Studio 2019\Projects\Control5LED_GUI\bin\Debug\Bunifu.UI.WinForms.BunifuSnackbar.dll
+C:\Users\jiide\Documents\Visual Studio 2019\Projects\Control5LED_GUI\bin\Debug\Bunifu.UI.WinForms.BunifuSnackbar.xml
