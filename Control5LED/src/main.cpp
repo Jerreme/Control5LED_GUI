@@ -89,7 +89,7 @@ void sequence1() {
     leftToRight(50, true, HIGH, 500);
     leftToRight(50, true, LOW, 200);
   }
-  Serial.print("Sequence 1 Done");
+  Serial.print("Sequence 1 has completed");
 }
 
 void sequence2() { 
@@ -97,12 +97,12 @@ void sequence2() {
     waveLights(100, HIGH, 300);
     waveLights(100, LOW, 500);
   }
-  Serial.print("Sequence 2 Done");
+  Serial.print("Sequence 2 has completed");
 }
 
 void sequence3() {
   swapping(500, 6, 1000);
-  Serial.print("Sequence 3 Done");
+  Serial.print("Sequence 3 has completed");
 }
 
 // --------------------------------------------------------------------------------------------------------------//

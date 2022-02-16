@@ -24,7 +24,7 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Dim BorderEdges3 As Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges = New Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges()
+        Dim BorderEdges1 As Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges = New Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.manualPanel = New Bunifu.UI.WinForms.BunifuPanel()
         Me.Panel6 = New System.Windows.Forms.Panel()
@@ -63,6 +63,7 @@ Partial Class Form1
         Me.indicator6 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Title = New System.Windows.Forms.Label()
         Me.comLabel = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -71,7 +72,6 @@ Partial Class Form1
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.sp = New System.IO.Ports.SerialPort(Me.components)
         Me.snackbar1 = New Bunifu.UI.WinForms.BunifuSnackbar(Me.components)
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.manualPanel.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
@@ -677,6 +677,16 @@ Partial Class Form1
         Me.Panel7.Size = New System.Drawing.Size(700, 60)
         Me.Panel7.TabIndex = 3
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Control5LED_GUI.My.Resources.Resources._3488675961640851887_128
+        Me.PictureBox1.Location = New System.Drawing.Point(147, 14)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(28, 40)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 6
+        Me.PictureBox1.TabStop = False
+        '
         'Title
         '
         Me.Title.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -746,11 +756,11 @@ Partial Class Form1
         Me.turn_off_all.ColorContrastOnClick = 45
         Me.turn_off_all.ColorContrastOnHover = 20
         Me.turn_off_all.Cursor = System.Windows.Forms.Cursors.Default
-        BorderEdges3.BottomLeft = False
-        BorderEdges3.BottomRight = True
-        BorderEdges3.TopLeft = True
-        BorderEdges3.TopRight = False
-        Me.turn_off_all.CustomizableEdges = BorderEdges3
+        BorderEdges1.BottomLeft = False
+        BorderEdges1.BottomRight = True
+        BorderEdges1.TopLeft = True
+        BorderEdges1.TopRight = False
+        Me.turn_off_all.CustomizableEdges = BorderEdges1
         Me.turn_off_all.DialogResult = System.Windows.Forms.DialogResult.None
         Me.turn_off_all.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.turn_off_all.DisabledFillColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
@@ -891,16 +901,6 @@ Partial Class Form1
         Me.snackbar1.WarningOptions.Icon = CType(resources.GetObject("resource.Icon3"), System.Drawing.Image)
         Me.snackbar1.WarningOptions.IconLeftMargin = 12
         Me.snackbar1.ZoomCloseIcon = True
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Control5LED_GUI.My.Resources.Resources._3488675961640851887_128
-        Me.PictureBox1.Location = New System.Drawing.Point(147, 14)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(28, 40)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 6
-        Me.PictureBox1.TabStop = False
         '
         'Form1
         '

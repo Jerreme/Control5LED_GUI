@@ -23,3 +23,5 @@ C:\Users\jiide\Documents\Visual Studio 2019\Projects\Control5LED_GUI\bin\Debug\B
 C:\Users\jiide\Documents\Visual Studio 2019\Projects\Control5LED_GUI\bin\Debug\Bunifu.UI.WinForms.BunifuSnackbar.dll
 C:\Users\jiide\Documents\Visual Studio 2019\Projects\Control5LED_GUI\bin\Debug\Bunifu.UI.WinForms.BunifuSnackbar.xml
 C:\Users\jiide\Documents\Visual Studio 2019\Projects\Control5LED_GUI\obj\Debug\Control5LED_GUI.vbproj.AssemblyReference.cache
+C:\Users\jiide\Documents\Visual Studio 2019\Projects\Control5LED_GUI\bin\Debug\Bunifu.UI.WinForms.BunifuSlider.dll
+C:\Users\jiide\Documents\Visual Studio 2019\Projects\Control5LED_GUI\bin\Debug\Bunifu.UI.WinForms.BunifuSlider.xml

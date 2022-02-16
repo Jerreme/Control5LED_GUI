@@ -1,4 +1,5 @@
-﻿Imports System.IO.Ports
+﻿Imports System.ComponentModel
+Imports System.IO.Ports
 
 Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -14,6 +15,7 @@ Public Class Form1
 
     Dim comPort As String = ""
     Dim prevComPort As String = ""
+    Dim dataReceived As String = ""
     Dim connected As Boolean = True
     Dim toggledAll As Boolean = False
 
@@ -96,6 +98,7 @@ Public Class Form1
     Sub Disable_All(state As Boolean)
         If (state) Then
             reset(True)
+            resetSeq()
             toggle1.Enabled = False
             toggle2.Enabled = False
             toggle3.Enabled = False
@@ -192,15 +195,14 @@ Public Class Form1
     End Sub
     Sub offToggleSeq(data As String)
         Select Case data
-            Case "Sequence 1 Done"
+            Case "Sequence 1 has completed"
                 toggle6.Invoke(Sub()
                                    indicator6.BackColor = inactive_col
                                    toggle6.Checked = False
                                    toggle7.Enabled = True
                                    toggle8.Enabled = True
                                End Sub)
-
-            Case "Sequence 2 Done"
+            Case "Sequence 2 has completed"
                 toggle7.Invoke(Sub()
                                    indicator7.BackColor = inactive_col
                                    toggle7.Checked = False
@@ -208,7 +210,7 @@ Public Class Form1
                                    toggle8.Enabled = True
                                End Sub)
 
-            Case "Sequence 3 Done"
+            Case "Sequence 3 has completed"
                 toggle8.Invoke(Sub()
                                    indicator8.BackColor = inactive_col
                                    toggle8.Checked = False
@@ -216,6 +218,17 @@ Public Class Form1
                                    toggle7.Enabled = True
                                End Sub)
         End Select
+
+        dataReceived = data
+        Me.Invoke(Sub()
+                      snackbar1.Show(
+                      Me,
+                      dataReceived,
+                      Bunifu.UI.WinForms.BunifuSnackbar.MessageTypes.Success,
+                      2000, "",
+                      Bunifu.UI.WinForms.BunifuSnackbar.Positions.BottomCenter)
+                  End Sub)
+
     End Sub
     Private Sub turn_off_all_Click(sender As Object, e As EventArgs) Handles turn_off_all.Click
         reset(True)
@@ -296,4 +309,5 @@ Public Class Form1
         Dim received As String = sp.ReadExisting()
         offToggleSeq(received)
     End Sub
+
 End Class
