@@ -1,5 +1,8 @@
-﻿Public Class Form1
+﻿Imports System.IO.Ports
+
+Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Windows.Forms.Control.CheckForIllegalCrossThreadCalls = False
         Me.CenterToScreen()
 
         Timer1.Start()
@@ -20,11 +23,8 @@
             sp.BaudRate = 9600
 
             Try
-                If (sp.IsOpen) Then 'if com is open then close it
-                    sp.Close()
-                Else                'if com is close the open it then close
+                If (Not sp.IsOpen) Then 'if com is open then close it
                     sp.Open()
-                    sp.Close()
                 End If
             Catch ex As Exception
                 snackbar1.Show(
@@ -147,8 +147,7 @@
         toggle5.Checked = val
     End Sub
 
-    Private Sub turn_off_all_Click(sender As Object, e As EventArgs) Handles turn_off_all.Click
-        reset(True)
+    Sub resetSeq()
         indicator6.BackColor = inactive_col
         indicator7.BackColor = inactive_col
         indicator8.BackColor = inactive_col
@@ -157,6 +156,70 @@
         toggle7.Checked = False
         toggle8.Checked = False
         toggle_all.Checked = False
+    End Sub
+
+    Sub switchSeq(sender As Object, seq As Integer)
+        If (CType(sender, Guna.UI2.WinForms.Guna2ToggleSwitch).Checked) Then
+            If (toggle_all.Checked) Then
+                toggle_all.Checked = False
+            End If
+            reset(True)
+
+            Select Case seq
+                Case 1
+                    indicator7.BackColor = inactive_col
+                    indicator8.BackColor = inactive_col
+                    toggle7.Checked = False
+                    toggle7.Enabled = False
+                    toggle8.Checked = False
+                    toggle8.Enabled = False
+                Case 2
+                    indicator6.BackColor = inactive_col
+                    indicator8.BackColor = inactive_col
+                    toggle6.Checked = False
+                    toggle6.Enabled = False
+                    toggle8.Checked = False
+                    toggle8.Enabled = False
+                Case 3
+                    indicator6.BackColor = inactive_col
+                    indicator7.BackColor = inactive_col
+                    toggle6.Checked = False
+                    toggle6.Enabled = False
+                    toggle7.Checked = False
+                    toggle7.Enabled = False
+            End Select
+        End If
+    End Sub
+    Sub offToggleSeq(data As String)
+        Select Case data
+            Case "Sequence 1 Done"
+                toggle6.Invoke(Sub()
+                                   indicator6.BackColor = inactive_col
+                                   toggle6.Checked = False
+                                   toggle7.Enabled = True
+                                   toggle8.Enabled = True
+                               End Sub)
+
+            Case "Sequence 2 Done"
+                toggle7.Invoke(Sub()
+                                   indicator7.BackColor = inactive_col
+                                   toggle7.Checked = False
+                                   toggle6.Enabled = True
+                                   toggle8.Enabled = True
+                               End Sub)
+
+            Case "Sequence 3 Done"
+                toggle8.Invoke(Sub()
+                                   indicator8.BackColor = inactive_col
+                                   toggle8.Checked = False
+                                   toggle6.Enabled = True
+                                   toggle7.Enabled = True
+                               End Sub)
+        End Select
+    End Sub
+    Private Sub turn_off_all_Click(sender As Object, e As EventArgs) Handles turn_off_all.Click
+        reset(True)
+        resetSeq()
     End Sub
 
     Private Sub toggle_all_CheckedChanged(sender As Object, e As EventArgs) Handles toggle_all.CheckedChanged
@@ -172,14 +235,14 @@
             Try
                 If (CType(sender, Guna.UI2.WinForms.Guna2ToggleSwitch).Checked) Then
                     indicator.BackColor = active_col
-                    sp.Open()
+                    'sp.Open()
                     sp.Write(data_On)
-                    sp.Close()
+                    'sp.Close()
                 Else
                     indicator.BackColor = inactive_col
-                    sp.Open()
+                    'sp.Open()
                     sp.Write(data_off)
-                    sp.Close()
+                    'sp.Close()
                 End If
             Catch ex As Exception
                 snackbar1.Show(
@@ -188,9 +251,7 @@
                     Bunifu.UI.WinForms.BunifuSnackbar.MessageTypes.Error,
                     2000, "",
                     Bunifu.UI.WinForms.BunifuSnackbar.Positions.TopCenter)
-
             End Try
-
         End If
     End Sub
     Private Sub toggle1_CheckedChanged(sender As Object, e As EventArgs) Handles toggle1.CheckedChanged
@@ -198,6 +259,7 @@
     End Sub
 
     Private Sub toggle2_CheckedChanged(sender As Object, e As EventArgs) Handles toggle2.CheckedChanged
+
         sendData(sender, indicator2, "B", "b")
     End Sub
 
@@ -213,15 +275,25 @@
         sendData(sender, indicator5, "E", "e")
     End Sub
 
+
     Private Sub toggle6_CheckedChanged(sender As Object, e As EventArgs) Handles toggle6.CheckedChanged
+        switchSeq(sender, 1)
         sendData(sender, indicator6, "F", "f")
     End Sub
 
     Private Sub toggle7_CheckedChanged(sender As Object, e As EventArgs) Handles toggle7.CheckedChanged
+        switchSeq(sender, 2)
         sendData(sender, indicator7, "G", "g")
     End Sub
 
     Private Sub toggle8_CheckedChanged(sender As Object, e As EventArgs) Handles toggle8.CheckedChanged
+        switchSeq(sender, 3)
         sendData(sender, indicator8, "H", "h")
+    End Sub
+
+
+    Private Sub sp_DataReceived(sender As Object, e As SerialDataReceivedEventArgs) Handles sp.DataReceived
+        Dim received As String = sp.ReadExisting()
+        offToggleSeq(received)
     End Sub
 End Class

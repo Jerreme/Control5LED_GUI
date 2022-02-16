@@ -24,7 +24,7 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Dim BorderEdges4 As Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges = New Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges()
+        Dim BorderEdges3 As Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges = New Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.manualPanel = New Bunifu.UI.WinForms.BunifuPanel()
         Me.Panel6 = New System.Windows.Forms.Panel()
@@ -63,7 +63,7 @@ Partial Class Form1
         Me.indicator6 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Title = New System.Windows.Forms.Label()
         Me.comLabel = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -71,6 +71,7 @@ Partial Class Form1
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.sp = New System.IO.Ports.SerialPort(Me.components)
         Me.snackbar1 = New Bunifu.UI.WinForms.BunifuSnackbar(Me.components)
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.manualPanel.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
@@ -83,6 +84,7 @@ Partial Class Form1
         Me.Panel10.SuspendLayout()
         Me.Panel8.SuspendLayout()
         Me.Panel7.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -101,7 +103,7 @@ Partial Class Form1
         Me.manualPanel.BackgroundImage = CType(resources.GetObject("manualPanel.BackgroundImage"), System.Drawing.Image)
         Me.manualPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.manualPanel.BorderColor = System.Drawing.Color.Transparent
-        Me.manualPanel.BorderRadius = 14
+        Me.manualPanel.BorderRadius = 18
         Me.manualPanel.BorderThickness = 1
         Me.manualPanel.Controls.Add(Me.Panel6)
         Me.manualPanel.Controls.Add(Me.Panel5)
@@ -466,7 +468,7 @@ Partial Class Form1
         Me.autoPanel.BackgroundImage = CType(resources.GetObject("autoPanel.BackgroundImage"), System.Drawing.Image)
         Me.autoPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.autoPanel.BorderColor = System.Drawing.Color.Transparent
-        Me.autoPanel.BorderRadius = 14
+        Me.autoPanel.BorderRadius = 18
         Me.autoPanel.BorderThickness = 1
         Me.autoPanel.Controls.Add(Me.Panel9)
         Me.autoPanel.Controls.Add(Me.Panel10)
@@ -666,7 +668,8 @@ Partial Class Form1
         Me.Panel7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel7.BackColor = System.Drawing.Color.White
-        Me.Panel7.Controls.Add(Me.Label15)
+        Me.Panel7.Controls.Add(Me.PictureBox1)
+        Me.Panel7.Controls.Add(Me.Title)
         Me.Panel7.Controls.Add(Me.comLabel)
         Me.Panel7.Location = New System.Drawing.Point(-8, -2)
         Me.Panel7.Margin = New System.Windows.Forms.Padding(0)
@@ -674,19 +677,20 @@ Partial Class Form1
         Me.Panel7.Size = New System.Drawing.Size(700, 60)
         Me.Panel7.TabIndex = 3
         '
-        'Label15
+        'Title
         '
-        Me.Label15.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.Title.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label15.Font = New System.Drawing.Font("Yu Gothic UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.ForeColor = System.Drawing.Color.Black
-        Me.Label15.Location = New System.Drawing.Point(31, 0)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Padding = New System.Windows.Forms.Padding(10, 10, 0, 0)
-        Me.Label15.Size = New System.Drawing.Size(370, 59)
-        Me.Label15.TabIndex = 5
-        Me.Label15.Text = "CONTROL LED"
-        Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Title.Font = New System.Drawing.Font("Yu Gothic UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Title.ForeColor = System.Drawing.Color.Black
+        Me.Title.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Title.Location = New System.Drawing.Point(27, 0)
+        Me.Title.Name = "Title"
+        Me.Title.Padding = New System.Windows.Forms.Padding(10, 10, 0, 0)
+        Me.Title.Size = New System.Drawing.Size(370, 59)
+        Me.Title.TabIndex = 5
+        Me.Title.Text = "CONTROL LED"
+        Me.Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'comLabel
         '
@@ -742,11 +746,11 @@ Partial Class Form1
         Me.turn_off_all.ColorContrastOnClick = 45
         Me.turn_off_all.ColorContrastOnHover = 20
         Me.turn_off_all.Cursor = System.Windows.Forms.Cursors.Default
-        BorderEdges4.BottomLeft = False
-        BorderEdges4.BottomRight = True
-        BorderEdges4.TopLeft = True
-        BorderEdges4.TopRight = False
-        Me.turn_off_all.CustomizableEdges = BorderEdges4
+        BorderEdges3.BottomLeft = False
+        BorderEdges3.BottomRight = True
+        BorderEdges3.TopLeft = True
+        BorderEdges3.TopRight = False
+        Me.turn_off_all.CustomizableEdges = BorderEdges3
         Me.turn_off_all.DialogResult = System.Windows.Forms.DialogResult.None
         Me.turn_off_all.DisabledBorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.turn_off_all.DisabledFillColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
@@ -764,7 +768,7 @@ Partial Class Form1
         Me.turn_off_all.IconRightPadding = New System.Windows.Forms.Padding(3, 3, 7, 3)
         Me.turn_off_all.IconSize = 25
         Me.turn_off_all.IdleBorderColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(115, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.turn_off_all.IdleBorderRadius = 14
+        Me.turn_off_all.IdleBorderRadius = 18
         Me.turn_off_all.IdleBorderThickness = 1
         Me.turn_off_all.IdleFillColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(115, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.turn_off_all.IdleIconLeftImage = Nothing
@@ -773,7 +777,7 @@ Partial Class Form1
         Me.turn_off_all.Location = New System.Drawing.Point(410, 315)
         Me.turn_off_all.Name = "turn_off_all"
         Me.turn_off_all.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.turn_off_all.OnDisabledState.BorderRadius = 14
+        Me.turn_off_all.OnDisabledState.BorderRadius = 18
         Me.turn_off_all.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid
         Me.turn_off_all.OnDisabledState.BorderThickness = 1
         Me.turn_off_all.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
@@ -781,7 +785,7 @@ Partial Class Form1
         Me.turn_off_all.OnDisabledState.IconLeftImage = Nothing
         Me.turn_off_all.OnDisabledState.IconRightImage = Nothing
         Me.turn_off_all.onHoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(74, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(199, Byte), Integer))
-        Me.turn_off_all.onHoverState.BorderRadius = 14
+        Me.turn_off_all.onHoverState.BorderRadius = 18
         Me.turn_off_all.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid
         Me.turn_off_all.onHoverState.BorderThickness = 1
         Me.turn_off_all.onHoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(74, Byte), Integer), CType(CType(140, Byte), Integer), CType(CType(199, Byte), Integer))
@@ -789,7 +793,7 @@ Partial Class Form1
         Me.turn_off_all.onHoverState.IconLeftImage = Nothing
         Me.turn_off_all.onHoverState.IconRightImage = Nothing
         Me.turn_off_all.OnIdleState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(115, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.turn_off_all.OnIdleState.BorderRadius = 14
+        Me.turn_off_all.OnIdleState.BorderRadius = 18
         Me.turn_off_all.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid
         Me.turn_off_all.OnIdleState.BorderThickness = 1
         Me.turn_off_all.OnIdleState.FillColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(115, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -797,7 +801,7 @@ Partial Class Form1
         Me.turn_off_all.OnIdleState.IconLeftImage = Nothing
         Me.turn_off_all.OnIdleState.IconRightImage = Nothing
         Me.turn_off_all.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(104, Byte), Integer), CType(CType(156, Byte), Integer))
-        Me.turn_off_all.OnPressedState.BorderRadius = 14
+        Me.turn_off_all.OnPressedState.BorderRadius = 18
         Me.turn_off_all.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid
         Me.turn_off_all.OnPressedState.BorderThickness = 1
         Me.turn_off_all.OnPressedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(104, Byte), Integer), CType(CType(156, Byte), Integer))
@@ -815,6 +819,9 @@ Partial Class Form1
         'Timer1
         '
         Me.Timer1.Interval = 200
+        '
+        'sp
+        '
         '
         'snackbar1
         '
@@ -885,6 +892,16 @@ Partial Class Form1
         Me.snackbar1.WarningOptions.IconLeftMargin = 12
         Me.snackbar1.ZoomCloseIcon = True
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Control5LED_GUI.My.Resources.Resources._3488675961640851887_128
+        Me.PictureBox1.Location = New System.Drawing.Point(147, 14)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(28, 40)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 6
+        Me.PictureBox1.TabStop = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -898,9 +915,9 @@ Partial Class Form1
         Me.Controls.Add(Me.autoPanel)
         Me.Controls.Add(Me.manualPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "Form1"
-        Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.manualPanel.ResumeLayout(False)
         Me.Panel6.ResumeLayout(False)
@@ -914,6 +931,7 @@ Partial Class Form1
         Me.Panel10.ResumeLayout(False)
         Me.Panel8.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -940,7 +958,7 @@ Partial Class Form1
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Label6 As Label
     Friend WithEvents Panel7 As Panel
-    Friend WithEvents Label15 As Label
+    Friend WithEvents Title As Label
     Friend WithEvents comLabel As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Label13 As Label
@@ -966,4 +984,5 @@ Partial Class Form1
     Friend WithEvents toggle6 As Guna.UI2.WinForms.Guna2ToggleSwitch
     Friend WithEvents toggle7 As Guna.UI2.WinForms.Guna2ToggleSwitch
     Friend WithEvents toggle8 As Guna.UI2.WinForms.Guna2ToggleSwitch
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
